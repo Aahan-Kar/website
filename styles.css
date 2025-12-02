@@ -1,0 +1,130 @@
+/* base: black bg, green text, monospace */
+* {
+    font-family: monospace;
+    font-size: 13px;
+    color: #0f0;
+    background: #000;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* links & italics */
+a { color:inherit; text-decoration:none; user-select:none; cursor:pointer; }
+a:hover { text-decoration:underline; }
+i { color:#fff; }
+
+/* inputs/buttons/selects/textareas/fieldset/range */
+button, input, select, textarea, fieldset, input[type=range] {
+    color:#0f0;
+    background:transparent;
+    border:1px solid #0f0;
+    padding:2px 4px;
+    font-family:inherit;
+    font-size:inherit;
+    cursor:pointer;
+}
+
+/* hover effect for all boxes */
+button:hover,
+input:hover,
+select:hover,
+textarea:hover,
+fieldset:hover,
+input[type=range]:hover {
+    color:#fff;
+    background:#222;
+}
+
+/* keep focus green for all interactive elements */
+input:focus,
+textarea:focus,
+select:focus,
+button:focus,
+fieldset:focus {
+    outline:none;
+    color:#0f0;
+    border-color:#0f0;
+    background:#000;
+}
+
+/* slider thumb */
+input[type=range]::-webkit-slider-thumb,
+input[type=range]::-moz-range-thumb {
+    width:10px;
+    height:10px;
+    border:1px solid #fff;
+    background:#000;
+    cursor:pointer;
+}
+
+/* header: username/color picker + green line */
+.header {
+    display:flex;
+    align-items:center;
+    gap:10px; /* space between inputs */
+    padding:16px 12px;
+    border-bottom:2px solid #0f0;
+    margin-bottom:8px;
+}
+
+/* messages container, scrollable */
+.messages {
+    padding:12px 12px 8px 12px;
+    margin:0;
+    height:calc(100vh - 200px); /* leave space for header + textarea */
+    overflow-y:scroll;
+}
+
+/* bottom textarea input */
+form textarea {
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:150px; /* bigger box */
+    padding:16px 20px;
+    font-family:monospace;
+    font-size:14px;
+    color:#0f0;
+    background:#000;
+    border-top:2px solid #0f0; /* only top line */
+    border-left:none;
+    border-right:none;
+    border-bottom:none;
+    border-radius:0;
+    outline:none;
+    resize:none;
+    box-sizing:border-box;
+    overflow-y:scroll; /* can scroll */
+    scrollbar-width:none; /* hide scrollbar in Firefox */
+}
+
+/* hide scrollbar in Chrome/Safari/Edge */
+form textarea::-webkit-scrollbar {
+    width:0;
+    height:0;
+}
+
+/* focus style for textarea (slightly highlighted) */
+form textarea:focus {
+    color:#0f0;
+    border-top-color:#0f0; /* green top line */
+    background:#111; /* subtle dark bg */
+}
+
+/* hide scrollbar in messages */
+.messages::-webkit-scrollbar {
+    width:0;
+    height:0;
+}
+
+/* responsive messy style */
+@media(max-width:600px){
+    * { width:auto; }
+    .header { flex-direction:column; gap:6px; padding:8px; }
+    .messages { padding:8px; height:calc(100vh - 160px); }
+    form textarea { height:120px; padding:12px 15px; }
+}
+
+/* end of file, maybe add more later */
